@@ -14,17 +14,18 @@ function App() {
 
   const [page, setPage] = useState('/home');
 
+  const navigationChangeHandler = (path) => {
+    setPage(path);
+  };
+
   const routes = {
     '/home': <WelcomeWorld />,
-    '/games': <Catalog />,
+    '/games': <Catalog navigationChangeHandler = {navigationChangeHandler}/>,
     '/create-game': <CreateGame />,
     '/login': <Login />,
     '/register': <Register />,
   };
 
-  const navigationChangeHandler = (path) => {
-    setPage(path);
-  };
 
   return (
     <div id="box">
